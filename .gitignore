@@ -1,0 +1,17 @@
+# Секреты — никогда в репозиторий
+231.json
+*.json
+!package.json
+.env
+
+# Бэкапы и мусор
+*.bak
+*.bak-*
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Локальное
+.DS_Store
+Thumbs.db

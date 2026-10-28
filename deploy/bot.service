@@ -1,0 +1,23 @@
+[Unit]
+Description=Bot Service
+After=network.target
+
+[Service]
+ExecStart=/root/bot/venv/bin/python /root/bot/bot.py
+WorkingDirectory=/root/bot
+Restart=always
+RestartSec=5
+User=root
+Environment=PYTHONUNBUFFERED=1
+# Замените на свои значения. Токен в репозиторий не коммитим.
+Environment=BOT_TOKEN=PASTE_BOT_TOKEN_HERE
+Environment=SPREADSHEET_ID=PASTE_SPREADSHEET_ID_HERE
+Environment=GOOGLE_CREDENTIALS_FILE=/root/bot/231.json
+# 1 — мут новичкам до подтверждения кнопкой, 0 — выключено
+Environment=CONFIRM_ON_JOIN=0
+Environment=MUTE_HOURS=24
+# Telegram ID админов через запятую — кому разрешён глобальный бан
+# Environment=ADMIN_IDS=123456789
+
+[Install]
+WantedBy=multi-user.target
